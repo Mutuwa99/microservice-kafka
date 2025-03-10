@@ -1,0 +1,12 @@
+Django>=4.0
+djangorestframework
+kafka-python
+requests>=2.25.1
+rest_framework_simplejwt
+djangorestframework-simplejwt
+djangorestframework  # For Django REST framework
+rest_framework_simplejwt  # For JWT authentication
+dj-rest-auth  # For authentication with REST APIs
+django-allauth  # For authentication, including social login and OpenID Connect support
+django-cors-headers  # To handle cross-origin resource sharing (CORS)
+requests  # For making HTTP requests (if used in your project)

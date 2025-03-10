@@ -1,0 +1,121 @@
+.container {
+    margin: 0 auto;
+    /* width: 100%; */
+
+  }
+  
+  .title {
+    padding: 15px 0;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 25px;
+    grid-row-gap: 25px;
+    grid-auto-flow: row;
+    grid-template-areas: ". . bio" ". . bio" ". . .";
+  }
+
+  .formbox{
+    width: 100% !important
+  }
+  
+  .field {
+    margin-top: 20px;
+  }
+  
+  .input,
+  .btn,
+  .checkmark {
+    padding: 15px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+  }
+  
+  .bio {
+    grid-area: bio;
+  }
+  
+  .bio > .input {
+    display: block;
+    height: calc(100% - 25px);
+    resize: none;
+    width: 400px !important;
+  }
+  
+  .newsletter {
+    grid-area: newsletter;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .newsletter > label {
+    cursor: pointer;
+  }
+  
+  .btn {
+    float: right;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    background-color: #ba0d45;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .checkbox {
+    display: none;
+  }
+  
+  .checkmark {
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .checkbox:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 7px;
+    height: 11px;
+    border: solid cornflowerblue;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+  
+  footer {
+    margin-top: 25px;
+  }
+  
+  @media (max-width: 900px) {
+    .form,
+    footer {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .btn {
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+  }
+  

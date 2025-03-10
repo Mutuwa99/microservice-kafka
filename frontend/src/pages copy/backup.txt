@@ -1,0 +1,26 @@
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+
+function AppDetail() {
+    const location = useLocation();
+    const { app } = location.state || {};
+
+    if (!app) {
+        return <p>No app data available.</p>;
+    }
+
+    return (
+        <div>
+            <h1>app Detail</h1>
+            <p>{`app ID: ${app.id}`}</p>
+            <p>{`Doctor: ${app.doctor}`}</p>
+            <p>{`Patient: ${app.patient}`}</p>
+            <p>{`Date: ${app.appointment_date}`}</p>
+            <p>{`Priority: ${app.priority}`}</p>
+            <p>{`Reason: ${app.reason}`}</p>
+            <p>{`Status: ${app.status}`}</p>
+        </div>
+    );
+}
+
+export default AppDetail;

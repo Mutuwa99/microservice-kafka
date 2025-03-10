@@ -1,0 +1,22 @@
+# Use the official Python image as the base image
+FROM python:3.9-slim
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Install dependencies
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application
+COPY . /app/
+
+# Install any additional dependencies for the consumer (if needed)
+RUN pip install channels
+
+# Set environment variable to use Django settings for production
+
+
+# Run Django migrations, collect static files, and then start both Django app and consumer script
+CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
+

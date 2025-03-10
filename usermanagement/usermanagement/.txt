@@ -1,0 +1,7 @@
+curl -X POST "http://localhost:7080/realms/myrealm/protocol/openid-connect/token" \
+     -H "Content-Type: application/x-www-form-urlencoded" \
+     -d "client_id=user-management" \
+     -d "client_secret=ZUpgDKKIFwQNXpbaZP4FylPKPzDMlghJ" \
+     -d "grant_type=password" \
+     -d "username=khensie" \
+     -d "password=khensie"

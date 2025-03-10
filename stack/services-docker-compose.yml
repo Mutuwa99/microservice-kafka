@@ -1,0 +1,75 @@
+version: '3.8'
+
+networks:
+  kafka-network:
+    external: true
+
+services:
+
+  # Notification Service
+  notification:
+    build:
+      context: ./notification 
+    container_name: notification_service
+    restart: always
+    volumes:
+      - ./notification:/app
+    ports:
+      - "9000:8000" 
+    networks:
+      - kafka-network 
+
+  # Analytics Service
+  analytics:
+    build:
+      context: ./analytics  
+    container_name: analytics_service
+    restart: always
+    volumes:
+      - ./analytics:/app
+    ports:
+      - "8001:8000" 
+    networks:
+      - kafka-network  
+
+  # Appointment Service
+  appointment:
+    build:
+      context: ./appointment  #
+    container_name: appointment_service
+    restart: always
+    volumes:
+      - ./appointment:/app
+    ports:
+      - "10000:8000"  
+    networks:
+      - kafka-network 
+
+  # User Management Service
+  usermanagement:
+    build:
+      context: ./usermanagement  
+    container_name: usermanagement_service
+    restart: always
+    volumes:
+      - ./usermanagement:/app
+    ports:
+      - "8000:8000"  
+    networks:
+      - kafka-network  
+
+  # User Management Service
+  frontend:
+    build:
+      context: ./frontend  
+    container_name: frontend
+    restart: always
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:80"  
+    networks:
+      - kafka-network  
+
+volumes:
+  pg_data:
